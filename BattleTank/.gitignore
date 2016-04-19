@@ -58,3 +58,5 @@ Intermediate/*
 DerivedDataCache/*
 
 *.VC.opendb
+
+Content/StarterContent/*
