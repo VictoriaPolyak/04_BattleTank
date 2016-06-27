@@ -11,29 +11,38 @@ class BATTLETANK_API ATank : public APawn
 	GENERATED_BODY()
 
 public:
-	// Sets default values for this pawn's properties
-	ATank();
-
-	// Called when the game starts or when spawned
-	virtual void BeginPlay() override;
 	
-	// Called every frame
-	virtual void Tick( float DeltaSeconds ) override;
+	void AimAt(FVector HitLocation);
 
-	// Called to bind functionality to input
-	virtual void SetupPlayerInputComponent(class UInputComponent* InputComponent) override;
 
-	UFUNCTION(BlueprintCallable, Category = Tank)
+
+
+
+	/* UFUNCTION(BlueprintCallable, Category = Tank)
 	void SetTurretChildActor(UChildActorComponent* TurretFromBP);
 
 	UFUNCTION(BlueprintCallable, Category = Tank)
 	void SetBarrelChildActor(UChildActorComponent* BarrelFromBP);
 
 	UFUNCTION(BlueprintCallable, Category = Tank)
-	void SetTankChildActor(UChildActorComponent* TankFromBP);
+	void SetTankChildActor(UChildActorComponent* TankFromBP); */
 	
 private:
 	
+	// Sets default values for this pawn's properties
+	ATank();
+
+	// Called when the game starts or when spawned
+	virtual void BeginPlay() override;
+
+	// Called every frame
+	virtual void Tick(float DeltaSeconds) override;
+
+	// Called to bind functionality to input
+	virtual void SetupPlayerInputComponent(class UInputComponent* InputComponent) override;
+
+
+	/*
 	UChildActorComponent* Tank = nullptr;
 	void MoveTank(float Speed);
 	void RotateTank(float Speed);
@@ -51,4 +60,5 @@ private:
 
 	UPROPERTY(EditAnywhere)
 	float MovementSpeed = 120.f;
+	*/
 };
