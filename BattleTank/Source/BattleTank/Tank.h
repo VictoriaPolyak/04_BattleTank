@@ -2,8 +2,9 @@
 
 #pragma once
 
+#include "TankAimimgComponent.h"
 #include "GameFramework/Pawn.h"
-#include "Tank.generated.h"
+#include "Tank.generated.h" // put new includes above
 
 UCLASS()
 class BATTLETANK_API ATank : public APawn
@@ -14,9 +15,8 @@ public:
 	
 	void AimAt(FVector HitLocation);
 
-
-
-
+	UFUNCTION(BlueprintCallable, Category = Setup)
+	void SetBarrelReference(UStaticMeshComponent* BarrelToSet);
 
 	/* UFUNCTION(BlueprintCallable, Category = Tank)
 	void SetTurretChildActor(UChildActorComponent* TurretFromBP);
@@ -26,7 +26,12 @@ public:
 
 	UFUNCTION(BlueprintCallable, Category = Tank)
 	void SetTankChildActor(UChildActorComponent* TankFromBP); */
-	
+
+protected:
+
+	UTankAimimgComponent* TankAimingComponent = nullptr;
+
+
 private:
 	
 	// Sets default values for this pawn's properties
@@ -41,6 +46,8 @@ private:
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* InputComponent) override;
 
+	UPROPERTY(EditAnywhere, Category = Firing)
+	float LaunchSpeed = 100000; // TODO find sensible default
 
 	/*
 	UChildActorComponent* Tank = nullptr;

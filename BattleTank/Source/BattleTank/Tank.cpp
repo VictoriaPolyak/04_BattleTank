@@ -10,6 +10,13 @@ ATank::ATank()
  	// Set this pawn to call Tick() every frame.  You can turn this off to improve performance if you don't need it.
 	PrimaryActorTick.bCanEverTick = true;
 
+	// No need to protect pointers as added at construction
+	TankAimingComponent = CreateDefaultSubobject<UTankAimimgComponent>(FName("Aiming Component"));
+}
+
+void ATank::SetBarrelReference(UStaticMeshComponent* BarrelToSet)
+{
+	TankAimingComponent->SetBarrelReference(BarrelToSet);
 }
 
 /*
@@ -90,7 +97,7 @@ void ATank::RotateTurret(float Speed)
 	float Rotation = GetWorld()->DeltaTimeSeconds * Speed * RotationSpeed;
 	Turret->AddRelativeRotation(FRotator(0.f, Rotation, 0.f));
 }
-*/
+*/ 
 	
 /*
 void ATank::ElevateBarrel(float Speed)
@@ -101,10 +108,8 @@ void ATank::ElevateBarrel(float Speed)
 }
 */
 
-void ATank::AimAt(FVector HitLocation) 
+void ATank::AimAt(FVector HitLocation)
 {
-	auto OurTankName = GetName();
-	UE_LOG(LogTemp, Warning, TEXT("%s aiming at %s"), *OurTankName, *HitLocation.ToString());
+	TankAimingComponent -> AimAt(HitLocation, LaunchSpeed);
 }
-
 
