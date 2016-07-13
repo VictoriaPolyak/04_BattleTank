@@ -22,18 +22,9 @@ public:
 	UFUNCTION(BlueprintCallable, Category = Setup)
 	void SetBarrelReference(UTankBarrel* BarrelToSet);
 
-	/* UFUNCTION(BlueprintCallable, Category = Tank)
-	void SetTurretChildActor(UChildActorComponent* TurretFromBP);
-
-	UFUNCTION(BlueprintCallable, Category = Tank)
-	void SetBarrelChildActor(UChildActorComponent* BarrelFromBP);
-
-	UFUNCTION(BlueprintCallable, Category = Tank)
-	void SetTankChildActor(UChildActorComponent* TankFromBP); */
-
 protected:
 
-	UTankAimimgComponent* TankAimingComponent = nullptr;
+	UTankAimimgComponent* TankAimimgComponent = nullptr;
 
 
 private:
@@ -51,23 +42,4 @@ private:
 	UPROPERTY(EditAnywhere, Category = Firing)
 	float LaunchSpeed = 100000; // TODO find sensible default
 
-	/*
-	UChildActorComponent* Tank = nullptr;
-	void MoveTank(float Speed);
-	void RotateTank(float Speed);
-
-	// Reference from blueprint
-	UChildActorComponent* Turret = nullptr;
-	// Rotate turret at speed, -ve values for CCW
-	void RotateTurret(float Speed);
-	
-	UChildActorComponent* Barrel = nullptr;
-	void ElevateBarrel(float Speed);
-
-	UPROPERTY(EditAnywhere)
-	float RotationSpeed = 120.f;
-
-	UPROPERTY(EditAnywhere)
-	float MovementSpeed = 120.f;
-	*/
 };

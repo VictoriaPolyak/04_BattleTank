@@ -12,7 +12,8 @@ class ATank;
 *
 */
 UCLASS()
-class BATTLETANK_API ATankPlayerController : public APlayerController {
+class BATTLETANK_API ATankPlayerController : public APlayerController 
+{
 	GENERATED_BODY()
 
 private:
