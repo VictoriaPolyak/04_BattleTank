@@ -38,9 +38,13 @@ void ATank::SetupPlayerInputComponent(class UInputComponent* InputComponent)
 	
 }
 
-
 void ATank::AimAt(FVector HitLocation)
 {
 	TankAimimgComponent -> AimAt(HitLocation, LaunchSpeed);
 }
 
+void ATank::Fire()
+{
+	UE_LOG(LogTemp, Warning, TEXT("Fire() method is being called"));
+	return;
+}
