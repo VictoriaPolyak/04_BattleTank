@@ -33,7 +33,7 @@ public:
 	void Fire();
 
 protected:
-
+	UPROPERTY(BlueprintReadOnly)
 	UTankAimimgComponent* TankAimimgComponent = nullptr;
 
 	UPROPERTY(BlueprintReadOnly)
